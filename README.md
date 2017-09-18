@@ -1,6 +1,8 @@
 # KinectRecord
 Matlab GUI for recording synchoronized color, depth, and skeleton from Kinect V2
 It is manly written to record a database for sign language recognition.
+
+Another version that records using both Kinect and Leap Motion Controller is available in the LCM branch
 # Requirement
 The Kinect V2 Toolbox for Matlab availabe at
 https://github.com/jrterven/Kin2
