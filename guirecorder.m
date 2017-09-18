@@ -64,6 +64,7 @@ handles.output = hObject;
 handles.kinectStatus=false;
 handles.recording=false;
 handles.save=false;
+handles.LCM=0;
 handles.folder = '.';
 addpath('Mex');
 % Update handles structure
@@ -136,7 +137,7 @@ if ~(handles.kinectStatus)
             break;
         end
         validData =  handles.k2.updateData;
-        
+        f=matleap_frame;
         % Before processing the data, we need to make sure that a valid
         % frame was acquired.
         if validData
@@ -196,13 +197,16 @@ if ~(handles.kinectStatus)
             % record vide
             if (handles.save)
                 skelfilename = [handles.colorfilename,'_s'];
+                LcMfilename = [handles.colorfilename,'_lcm'];
                 depthfilename =  replace(handles.colorfilename,'_c','_d');
                 %             body=handles.b;
                 save(skelfilename,'body');
+                save(LcMfilename,'LcmData');
                 save(depthfilename,'depthdata','-v7.3');
                 handles.save=false;
                 clear body;
                  depthdata=[];
+                 clear LcmData;
                 guidata(hObject, handles);
             end
             handles = guidata(hObject);
@@ -212,6 +216,7 @@ if ~(handles.kinectStatus)
 %                 writeVideo(handles.dv,depth8uc3);
                 %class( bodies(1))
                 depthdata=cat(3, depthdata, depth);
+                LcmData(handles.count) = f;
                 body(handles.count) =  bod;
                 handles.count = handles.count+1;
                 guidata(hObject, handles);
