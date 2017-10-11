@@ -17,3 +17,12 @@ Make sure that the skeleton is shown befor pressing the Start Recording button.
 Use Stop Recording button to stop and save the recorded sample.
 
 The color is saved to .mp4, the depth to _d.mat the skeleton to _s.mat
+
+# Written by:
+
+Ala addin I. Sidig                      and            Hamzah Luqman
+
+
+                        Collage of computer science and engineering
+
+                       King Fahad University of Petroluem and Minerals 
